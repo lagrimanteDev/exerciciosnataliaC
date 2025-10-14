@@ -14,27 +14,23 @@ Welcome to GDB Online.
 int main()
 {
    srand(time(NULL));
-   int num = (rand() % 3) + 1;
-   int usuario = 0 ;
+   int num = (rand() % 5) + 1;
+   int usuario = 0, cont = 0 ;
    
-   printf("Digie 1 para Tesoura , 2 para Pedra , 3 para Papel: ");
+   while(cont < 4){
+    printf("\nDigite o valor a ser adivinhado de  1 a 5 : ");
    scanf("%d", &usuario);
+   num = (rand() % 5) + 1;
    
-   if (usuario == 1 && num == 3 ){
-       printf("Você Ganhou!, Tesoura ganha de Papel");
-   }
-   else if (usuario == 2 && num == 1){
-        printf("Você Ganhou!, Pedra ganha de Tesoura");       
-   }
-   else if (usuario == 3 && num == 2){
-       printf("Você Ganhou!, Papel ganha de Pedra");
-   }
-   else if (usuario == num){
-       printf("Empate");
+    if (usuario == num){
+       printf("\nAcertou");
+       return 0;
    }
    else{
-       printf("Você perdeu", num);
+       printf("\nVocê perdeu %d", num);
    }
-
+    
+    cont++;
+   }
     return 0;
 }
